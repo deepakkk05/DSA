@@ -1,41 +1,27 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-void bubble_sort(int arr[], int n)
-{
-    for (int i = n - 1; i >= 0; i--)
-    {
-        int didSwap = 0;
-        for (int j = 0; j <= i - 1; j++)
-        {
-            if (arr[j] > arr[j + 1])
-            {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                didSwap = 1;
-            }
-        }
-        if (didSwap == 0)
-        {
-            break;
-        }
+bool isSpecial(string s) {
+    int n = s.size();
+    for (int i = 1; i < n; i++) {
+        bool ok = true;
+        for (int j = 0; j < i; j++)
+            if (s[j] != 'a') ok = false;
+        for (int j = i; j < n; j++)
+            if (s[j] != 'b') ok = false;
+        if (ok) return true;
     }
-
-    cout << "Sorted Array through bubble sort:" << endl;
-    for (int i = 0; i < n; i++) // 
-    {
-        cout << arr[i] << " ";
-    }
-    cout << endl;
+    return false;
 }
 
-int main()
-{
-    cout << "Starting sort..." << endl;
-
-    int arr[] = {13, 46, 24, 52, 20, 9};
-    int n = sizeof(arr) / sizeof(arr[0]);
-
-    bubble_sort(arr, n);
+int main() {
+    int T, count = 0;
+    cin >> T;
+    while (T--) {
+        string s;
+        cin >> s;
+        if (isSpecial(s)) count++;
+    }
+    cout << count;
+    return 0;
 }
