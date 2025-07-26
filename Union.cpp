@@ -42,8 +42,10 @@ using namespace std;
 //     union1.push_back(it);
 //   return union1;
 // }
+// -------------------------------------------------------------
 
 
+// A3:Two Pointer approach : As always the best
 vector < int > FindUnion(int arr1[], int arr2[], int n, int m) {
   int i = 0, j = 0; // pointers
   vector < int > Union; // Union vector
